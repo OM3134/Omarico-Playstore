@@ -1,0 +1,515 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GameSupport Hub - Your Game Help Center</title>
+  <style>
+    :root {
+      --primary-color: #1e90ff;
+      --secondary-color: #0d47a1;
+      --accent-color: #ff6f61;
+      --background-color: #121212;
+      --text-color: #e0e0e0;
+      --light-text: #b0b0b0;
+      --white: #fff;
+      --border-radius: 8px;
+      --transition-speed: 0.3s;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+
+    a:hover {
+      color: var(--accent-color);
+    }
+
+    header {
+      background-color: #0b0b0b;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 90%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0d47a1, #1e90ff);
+      padding: 4rem 2rem;
+      border-radius: var(--border-radius);
+      margin: 2rem auto;
+      text-align: center;
+      color: var(--white);
+      box-shadow: 0 8px 20px rgba(30, 144, 255, 0.4);
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 900;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .search-bar {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      border-radius: 50px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      background: var(--white);
+    }
+
+    .search-bar input {
+      flex-grow: 1;
+      border: none;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 50px 0 0 50px;
+      outline: none;
+    }
+
+    .search-bar button {
+      background-color: var(--primary-color);
+      border: none;
+      color: var(--white);
+      padding: 0 2rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 0 50px 50px 0;
+      transition: background-color var(--transition-speed);
+    }
+
+    .search-bar button:hover {
+      background-color: var(--accent-color);
+    }
+
+    /* Support Categories */
+    .support-categories {
+      max-width: 1100px;
+      margin: 3rem auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    .category-card {
+      background-color: #1f1f1f;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+      transition: transform var(--transition-speed);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .category-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 30px rgba(30, 144, 255, 0.6);
+    }
+
+    .category-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .category-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .category-desc {
+      font-size: 1rem;
+      color: var(--light-text);
+    }
+
+    /* FAQ Section */
+    #faq {
+      max-width: 900px;
+      margin: 3rem auto 5rem;
+      padding: 0 1rem;
+    }
+
+    #faq h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    #faq p {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--light-text);
+      font-size: 1.1rem;
+    }
+
+    .faq-item {
+      background-color: #1f1f1f;
+      border-radius: var(--border-radius);
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      font-weight: 700;
+      position: relative;
+      user-select: none;
+    }
+
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 1.5rem;
+      font-size: 1.5rem;
+      transition: transform var(--transition-speed);
+    }
+
+    .faq-question.active::after {
+      content: '−';
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1.5rem;
+      color: var(--light-text);
+      font-weight: 500;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .faq-answer.open {
+      padding: 1rem 1.5rem 1.5rem;
+      max-height: 500px; /* large enough for content */
+    }
+
+    /* Contact Section */
+    #contact {
+      background-color: #1f1f1f;
+      padding: 3rem 1rem 4rem;
+      border-radius: var(--border-radius);
+      max-width: 700px;
+      margin: 0 auto 5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    #contact h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    #contact p {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--light-text);
+      font-size: 1.1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      display: block;
+      color: var(--white);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      padding: 0.75rem 1rem;
+      border-radius: var(--border-radius);
+      border: none;
+      font-size: 1rem;
+      background-color: #2a2a2a;
+      color: var(--white);
+      resize: vertical;
+      transition: background-color var(--transition-speed);
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid var(--primary-color);
+      background-color: #333;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    button[type="submit"] {
+      background-color: var(--primary-color);
+      color: var(--white);
+      font-weight: 700;
+      padding: 1rem;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background-color var(--transition-speed);
+    }
+
+    button[type="submit"]:hover {
+      background-color: var(--accent-color);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0b0b0b;
+      color: var(--light-text);
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid #222;
+      margin-top: auto;
+    }
+
+    footer a {
+      color: var(--primary-color);
+      margin: 0 0.5rem;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      nav ul {
+        gap: 1rem;
+      }
+
+      .support-categories {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="file:///C:/Users/Omar/Omarico%20Playstore%202.html" class="logo">Omarico Playstore Support</a>
+        <ul>
+          <li><a href="#support">Support</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Game Support Introduction">
+    <h1>Need Help with Your Game?</h1>
+    <p>Find answers, troubleshoot issues, and get support from our expert team.</p>
+    <form class="search-bar" role="search" onsubmit="event.preventDefault(); alert('Search feature coming soon!');">
+      <input type="search" placeholder="Search game help articles, FAQs, and guides..." aria-label="Search game support" />
+      <button type="submit" aria-label="Search">Search</button>
+    </form>
+  </section>
+
+  <section id="support" class="support-categories" aria-label="Support Categories">
+    <article class="category-card" tabindex="0" role="button" aria-pressed="false" onclick="alert('Redirecting to Technical Support...')">
+      <div class="category-icon" aria-hidden="true">🛠️</div>
+      <h3 class="category-title">Technical Issues</h3>
+      <p class="category-desc">Troubleshoot crashes, bugs, and performance problems.</p>
+    </article>
+
+    <article class="category-card" tabindex="0" role="button" aria-pressed="false" onclick="alert('Redirecting to Account Help...')">
+      <div class="category-icon" aria-hidden="true">👤</div>
+      <h3 class="category-title">Account Help</h3>
+      <p class="category-desc">Manage your account, passwords, and billing questions.</p>
+    </article>
+
+    <article class="category-card" tabindex="0" role="button" aria-pressed="false" onclick="alert('Redirecting to Gameplay Tips...')">
+      <div class="category-icon" aria-hidden="true">🎮</div>
+      <h3 class="category-title">Gameplay Tips</h3>
+      <p class="category-desc">Learn strategies, walkthroughs, and game mechanics.</p>
+    </article>
+
+    <article class="category-card" tabindex="0" role="button" aria-pressed="false" onclick="alert('Redirecting to Community Forums...')">
+      <div class="category-icon" aria-hidden="true">💬</div>
+      <h3 class="category-title">Community</h3>
+      <p class="category-desc">Join discussions, report issues, and share your experiences.</p>
+    </article>
+  </section>
+
+  <section id="faq" aria-label="Frequently Asked Questions">
+    <h2>Frequently Asked Questions</h2>
+    <p>Quick answers to common game support questions.</p>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq1" id="faq1-btn">
+        How do I reset my game password?
+      </button>
+      <div class="faq-answer" id="faq1" role="region" aria-labelledby="faq1-btn">
+        <p>Go to the account login page and click "Forgot Password." Enter your registered email to receive a reset link.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq2" id="faq2-btn">
+        Why is my game crashing on startup?
+      </button>
+      <div class="faq-answer" id="faq2" role="region" aria-labelledby="faq2-btn">
+        <p>Ensure your graphics drivers are up to date and your system meets the minimum requirements. Try reinstalling the game if the problem persists.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq3" id="faq3-btn">
+        How can I report a bug or glitch?
+      </button>
+      <div class="faq-answer" id="faq3" role="region" aria-labelledby="faq3-btn">
+        <p>Use the "Contact" form below or visit our community forums to report bugs. Please provide detailed information and steps to reproduce the issue.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq4" id="faq4-btn">
+        Can I transfer my game progress to another device?
+      </button>
+      <div class="faq-answer" id="faq4" role="region" aria-labelledby="faq4-btn">
+        <p>Yes, if you link your game account to a cloud service or your email, you can sync progress across devices.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-label="Contact Support">
+    <h2>Contact Our Support Team</h2>
+    <p>Fill out the form below and we’ll get back to you as soon as possible.</p>
+    <form onsubmit="event.preventDefault(); alert('Thank you for contacting support! We will respond shortly.'); this.reset();">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="issue">Issue Type</label>
+      <select id="issue" name="issue" required>
+        <option value="" disabled selected>Select an issue</option>
+        <option value="technical">Technical Issue</option>
+        <option value="account">Account Problem</option>
+        <option value="billing">Billing Question</option>
+        <option value="gameplay">Gameplay Help</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Describe your issue or question..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>
+      &copy; 2024 GameSupport Hub | 
+      <a href="#support">Support</a> | 
+      <a href="#faq">FAQ</a> | 
+      <a href="#contact">Contact</a> | 
+      <a href="#community">Community</a>
+    </p>
+    <p>
+      Follow us: 
+      <a href="#" aria-label="Twitter">🐦</a> 
+      <a href="#" aria-label="Discord">💬</a> 
+      <a href="#" aria-label="YouTube">▶️</a>
+    </p>
+  </footer>
+
+  <script>
+    // FAQ accordion toggle
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', !expanded);
+        const answer = document.getElementById(button.getAttribute('aria-controls'));
+        if (!expanded) {
+          answer.classList.add('open');
+        } else {
+          answer.classList.remove('open');
+        }
+      });
+    });
+  </script>

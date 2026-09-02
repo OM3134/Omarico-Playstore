@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Games - Omarico Playstore</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #0f0f1a;
+      color: #f2f2f2;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      background: rgba(15, 15, 26, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #7c5cff;
+    }
+
+    .brand span {
+      color: #00d4ff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00d4ff;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #7c5cff, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: #aaa;
+      font-size: 1.1rem;
+    }
+
+    /* Game grid */
+    .games {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .games h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 25px;
+      align-items: start;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+      transform: translateY(40px);
+      opacity: 0;
+      animation: fadeInUp 0.8s forwards;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(5) { animation-delay: 0.5s; }
+    .card:nth-child(6) { animation-delay: 0.6s; }
+    .card:nth-child(7) { animation-delay: 0.7s; }
+    .card:nth-child(8) { animation-delay: 0.8s; }
+    .card:nth-child(9) { animation-delay: 0.9s; }
+
+    @keyframes fadeInUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      max-height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card .content {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .card .title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .card .desc {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-bottom: 15px;
+    }
+
+    .download {
+      display: inline-block;
+      text-align: center;
+      padding: 10px 16px;
+      background: linear-gradient(90deg, #7c5cff, #00d4ff);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      margin-top: auto;
+    }
+
+    .download:hover {
+      background: linear-gradient(90deg, #00d4ff, #7c5cff);
+    }
+
+    /* Footer */
+    footer {
+      background: #0d0d17;
+      padding: 20px;
+      text-align: center;
+      color: #777;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Omarico <span>Playstore</span></div>
+    <nav class="nav-links">
+      <a href="c:\Users\Omar\Omarico Playstore.html">Home</a>
+      <a href="file:///C:/Users/Omar/omarico%20playstore%20supp.html">Support</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>All Games</h1>
+    <p>Choose your favorite game and start downloading.</p>
+  </section>
+
+  <section class="games">
+    <h2>Available Games</h2>
+    <div class="grid">
+      <!-- GTA V -->
+      <div class="card">
+        <img src="https://thegamekeys.in/wp-content/uploads/2023/08/71uizbdZ5dL.jpg" alt="GTA V">
+        <div class="content">
+          <div>
+            <div class="title">GTA V</div>
+            <div class="desc">Explore Los Santos in Rockstar's massive open world adventure.</div>
+          </div>
+          <a href="d:\Games\Grand Theft Auto V.rar" class="download">Download</a>
+        </div>
+      </div>
+
+      <!-- Sleeping Dogs -->
+      <div class="card">
+        <img src="https://static.wikia.nocookie.net/sleepingdogs/images/b/bc/Cover-ps4-sleeping-dogs-definitive-edition-limited-edition.gif/revision/latest?cb=20140903192757" alt="Sleeping Dogs">
+        <div class="content">
+          <div>
+            <div class="title">Sleeping Dogs</div>
+            <div class="desc">Experience the streets of Hong Kong in this open world action game.</div>
+          </div>
+          <a href="d:\Games\Sleeping Dogs - Definitive Edition.rar" class="download">Download</a>
+        </div>
+      </div>
+
+      <!-- Assassin's Creed Rogue -->
+      <div class="card">
+        <img src="https://image.api.playstation.com/cdn/JP0001/CUSA10132_00/Wh098aFfbc0ZxRZGdTzIYCw05SOlX3vi.png" alt="AC Rogue">
+        <div class="content">
+          <div>
+            <div class="title">Assassin's Creed Rogue</div>
+            <div class="desc">Become Shay Cormac, a Templar in the age of exploration.</div>
+          </div>
+          <a href="d:\Games\Assassin's Creed - Rogue.rar" class="download">Download</a>
+        </div>
+      </div>
+
+      <!-- Assassin's Creed Black Flag -->
+      <div class="card">
+        <img src="https://static.wikia.nocookie.net/assassinscreed/images/1/18/AC4-Cover.jpg/revision/latest/scale-to-width-down/1200?cb=20130824140318&path-prefix=ar" alt="AC Black Flag">
+        <div class="content">
+          <div>
+            <div class="title">Assassin's Creed Black Flag</div>
+            <div class="desc">Set sail as Edward Kenway in the golden age of piracy.</div>
+          </div>
+          <a href="d:\Games\Assassins's Creed 4 - Black Flag.rar" class="download">Download</a>
+        </div>
+      </div>
+
+      <!-- GTA San Andreas -->
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/c/c4/GTASABOX.jpg" alt="GTA San Andreas">
+        <div class="content">
+          <div>
+            <div class="title">GTA San Andreas</div>
+            <div class="desc">Help CJ take control of the streets in San Andreas.</div>
+          </div>
+          <a href="https://oceanofgames.com/gta-san-andreas-download-free-9325369" class="download">Download</a>
+        </div>
+      </div>
+
+      <!-- GTA Vice City -->
+      <div class="card">
+        <img src="https://upload.wikimedia.org/wikipedia/en/c/ce/Vice-city-cover.jpg" alt="GTA Vice City">
+        <div class="content">
+          <div>
+            <div class="title">GTA Vice City</div>
+            <div class="desc">Rule the neon-soaked 80s in Vice City.</div>
+          </div>
+          <a href="d:\Games\Grand Theft Auto - Vice City.rar" class="download">Download</a>
+        </div>
+      </div>
+
+      <!-- GTA Vice City Definitive Edition -->
+      <div class="card">
+        <img src="https://cdn1.epicgames.com/offer/fd6a13a256014a22a83ff2aaacc30e00/EGS_GrandTheftAutoViceCityTheDefinitiveEdition_RockstarGames_S2_1200x1600-18ac3dd32143492b2650144da0cf0ca9" alt="GTA Vice City Definitive Edition">
+        <div class="content">
+          <div>
+            <div class="title">GTA Vice City: Definitive Edition</div>
+            <div class="desc">Experience the iconic 80s classic with enhanced visuals and modern controls.</div>
+          </div>
+          <a href="d:\Games\Grand Theft Auto - Vice City Definitive Edition.rar" class="download">Download</a>
+        </div>
+      </div>
+
+      <!-- GTA IV Complete Edition -->
+      <div class="card">
+        <img src="https://imgproxy.eneba.games/cMTqyrB2uZnpmWzukYfLkFrTPs5BNVVYnrC7gzixn1Y/rs:fit:350/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9y/NGtjYXlMLmpwZw" alt="GTA IV Complete Edition">
+        <div class="content">
+          <div>
+            <div class="title">GTA IV: Complete Edition</div>
+            <div class="desc">Step into Liberty City as Niko Bellic in Rockstar's gritty masterpiece with all expansions.</div>
+          </div>
+          <a href="d:\Games\Grand Theft Auto IV - The Complete Edition.rar" class="download">Download</a>
+        </div>
+      </div>
+
+      <!-- Minecraft -->
+      <div class="card">
+        <img src="https://www.minecraft.net/content/dam/games/minecraft/key-art/Minecraft-xbox-one.jpg" alt="Minecraft">
+        <div class="content">
+          <div>
+            <div class="title">Minecraft</div>
+            <div class="desc">Build, explore, and survive in this endless sandbox world.</div>
+          </div>
+          <a href="c:\Users\Omar\Downloads\MinecraftInstaller.exe" class="download">Download</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Omarico Playstore. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
